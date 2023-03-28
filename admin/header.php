@@ -32,7 +32,21 @@ defined('ROOT') OR exit('No direct script access allowed');
                     <ul>
                         <li><h1><a href="javascript:" id="open_nav"></a></h1></li>
                         <li><a target="_blank" href="../">Voir le site</a></li>
-                        <li><a href="index.php?action=logout&token=<?php echo administrator::getToken(); ?>">Déconnexion</a></li>
+<!--suppression du <li>deconnexion</li> puis on copie/colle a la place le code compris entre les lignes 61 et 73 (comprises) -->
+                                                        <?php foreach ($pluginsManager->getPlugins() as $k => $v)
+                                    if ($v->getConfigVal('activate') && $v->getAdminFile() && $v->getIsDefaultAdminPlugin()) {
+                                        ?>
+                                        <li><a href="index.php?p=<?php echo $v->getName(); ?>"><?php echo $v->getInfoVal('name'); ?></a></li>
+                                        <?php
+                                    }
+                                foreach ($pluginsManager->getPlugins() as $k => $v)
+                                    if ($v->getConfigVal('activate') && $v->getAdminFile() && !$v->getIsDefaultAdminPlugin()) {
+                                        ?>
+                                        <li><a href="index.php?p=<?php echo $v->getName(); ?>"><?php echo $v->getInfoVal('name'); ?></a></li>
+                                        <?php
+                                    }
+                                ?>
+                                <li class="site"><a href="index.php?action=logout&token=<?php echo administrator::getToken(); ?>">Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -40,6 +54,32 @@ defined('ROOT') OR exit('No direct script access allowed');
                 <?php show::displayMsg(); ?>
             </div>
             <div id="body">
+
+   <!-- création du div class "fix_menu" -->           
+                <div class="fix_menu">
+
+   <!-- insérer le menu -->
+                    <ul>
+                        <li><a target="_blank" href="../">Voir le site</a></li>
+                                                        <?php foreach ($pluginsManager->getPlugins() as $k => $v)
+                                    if ($v->getConfigVal('activate') && $v->getAdminFile() && $v->getIsDefaultAdminPlugin()) {
+                                        ?>
+                                        <li><a href="index.php?p=<?php echo $v->getName(); ?>"><?php echo $v->getInfoVal('name'); ?></a></li>
+                                        <?php
+                                    }
+                                foreach ($pluginsManager->getPlugins() as $k => $v)
+                                    if ($v->getConfigVal('activate') && $v->getAdminFile() && !$v->getIsDefaultAdminPlugin()) {
+                                        ?>
+                                        <li><a href="index.php?p=<?php echo $v->getName(); ?>"><?php echo $v->getInfoVal('name'); ?></a></li>
+                                        <?php
+                                    }
+                                ?>
+                                <li class="site"><a href="index.php?action=logout&token=<?php echo administrator::getToken(); ?>">Déconnexion</a></li>
+                    </ul>
+    <!--fermeture de la balise fix_menu-->
+                </div>
+
+
                 <div id="content_mask">
                     <div id="content" class="<?php echo $runPlugin->getName(); ?>-admin">
                         <div id="sidebar">
