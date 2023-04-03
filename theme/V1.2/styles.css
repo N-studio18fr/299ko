@@ -270,9 +270,76 @@ header nav img{
 
 
 
+/*main{
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  position: relative;
+}
+
+main:before, main:after {
+  -webkit-box-shadow: 0 15px 10px rgba(0,0,0, .7);
+  -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  position: absolute;
+  left: 10px;
+  bottom: 15px;
+  z-index: -1;
+  width: 100%;
+  max-width: 100%;
+  height: 20%;
+  content: "";
+}*/
+        main {
+    display: block;
+      position: relative;
+      width: 90%;
+            background: #efe;
+            -moz-border-radius: 4px;
+            border: 1px solid #DDD;
+            border-radius: 4px;
+            padding: 1.5em;
+            color: rgba(0,0,0, .8);
+            text-shadow: 0 1px 0 #fff;
+            line-height: 1.5;
+            text-align: center;
+            display: block;
+      margin: 25px auto;
+        }
 
 
+        main:before, main:after {
+      z-index: -1; 
+      position: absolute; 
+      content: "";
+      bottom: 15px;
+      left: 10px;
+      width: 50%; 
+      top: 80%;
+      max-width:300px;
+      background: rgba(0, 0, 0, 0.7); 
+      -webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);   
+      -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+      -webkit-transform: rotate(-3deg);    
+      -moz-transform: rotate(-3deg);   
+      -o-transform: rotate(-3deg);
+        }
 
+     main:after {
+            -webkit-transform: rotate(3deg);
+            -moz-transform: rotate(3deg);
+            -o-transform: rotate(3deg);
+            right: 10px;
+            left: auto;
+        }
+
+.page h1{
+    border-bottom: 1px solid black;
+}
 
 
 
